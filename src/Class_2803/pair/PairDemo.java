@@ -3,7 +3,6 @@ package Class_2803.pair;
 public class PairDemo {
     public static void main(String[] args) {
         Pair<Integer, String> pair = new Pair<>(1,"2");
-
     }
 }
 
