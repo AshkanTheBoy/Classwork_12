@@ -6,6 +6,7 @@ import java.util.List;
 
 public class SeaBattle {
     //Не успел сделать "автобой"
+    //Не знаем, уничтожили ли корабль - только его размер
     static int[][] sea = new int[4][6];
     static boolean isShielded = true;
 
@@ -13,9 +14,14 @@ public class SeaBattle {
         makeSea();
         printSea();
         System.out.println(fireAt(4, 1));
+        //после "попадания", "щит" восстанавливается
+        System.out.println(fireAt(5, 1));
+        //щит опять есть
         System.out.println(fireAt(4, 1));
 
         System.out.println(fireAt(2, 2));
+        System.out.println(fireAt(2, 3));
+        System.out.println(fireAt(2, 4));
         System.out.println(fireAt(2, 2));
 
         System.out.println(fireAt(4, 3));
