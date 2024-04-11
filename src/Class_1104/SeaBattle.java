@@ -5,18 +5,21 @@ import java.util.Arrays;
 import java.util.List;
 
 public class SeaBattle {
+    //Не успел сделать "автобой"
     static int[][] sea = new int[4][6];
-
     static boolean isShielded = true;
-
 
     public static void main(String[] args) {
         makeSea();
         printSea();
         System.out.println(fireAt(4, 1));
         System.out.println(fireAt(4, 1));
+
         System.out.println(fireAt(2, 2));
         System.out.println(fireAt(2, 2));
+
+        System.out.println(fireAt(4, 3));
+        System.out.println(fireAt(4, 3));
     }
 
     public static void printSea() {
@@ -57,12 +60,8 @@ public class SeaBattle {
                             isShielded = false;
                         } else {
                             count++;
-                            if (isShipHrz(xCord, yCord)) {
-                                count += checkHrz(xCord, yCord);
-                            } else {
-                                count += checkVrt(xCord, yCord);
-                                isShielded = true;
-                            }
+                            count += checkHrz(xCord, yCord);
+                            isShielded = true;
                         }
                     }
                 }
@@ -75,26 +74,12 @@ public class SeaBattle {
                             isShielded = false;
                         } else {
                             count++;
-                            if (isShipHrz(xCord, yCord)) {
-                                count += checkHrz(xCord, yCord);
-                            } else {
-                                count += checkVrt(xCord, yCord);
-                                isShielded = true;
-                            }
+                            count += checkVrt(xCord, yCord);
+                            isShielded = true;
                         }
                     }
                 }
             }
-//            isShielded = false;
-//            if (!isShielded) {
-//
-//            } else {
-//                if (isShipHrz(xCord, yCord)) {
-//                    count += checkHrz(xCord, yCord);
-//                } else {
-//                    count += checkVrt(xCord, yCord);
-//                }
-//            }
         }
         return count;
     }
@@ -151,8 +136,8 @@ public class SeaBattle {
             yCord--;
         }
         while (yCord< sea.length && sea[yCord][xCord] == 1) {
-            yCord++;
             shipCords.add(new int[]{xCord,yCord});
+            yCord++;
         }
         return shipCords;
     }
